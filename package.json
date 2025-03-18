@@ -10,7 +10,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "chromedriver": "^109.0.0",
-    "selenium-webdriver": "^4.7.1"
+    "axios": "^1.7.9",
+    "chromedriver": "^131.0.3",
+    "selenium-webdriver": "^4.27.0"
   }
 }

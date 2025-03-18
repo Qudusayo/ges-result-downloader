@@ -17,7 +17,7 @@ if (!fs.existsSync(resultsDirectory)) {
 }
 
 async function getGESResults() {
-  let driver = await new Builder().forBrowser("chrome").build();
+  let driver = new Builder().forBrowser("chrome").build();
 
   try {
     // Navigate to cgs url
@@ -33,6 +33,10 @@ async function getGESResults() {
         await driver
           .findElement(By.name("passkey"))
           .sendKeys(`${arrayOfMatricNums[index]}`, Key.ENTER);
+
+        // Using CSS Selector (recommended)
+        close_button = driver.findElement(By.xpath("//button[@data-dismiss='modal']"))
+        close_button.click()
 
         // Find and click the result link on the side bar
         await driver
@@ -66,7 +70,7 @@ async function getGESResults() {
     }
   } finally {
     // If all process are completed, close the driver
-    await driver.quit();
+    // await driver.quit();
   }
 }
 
